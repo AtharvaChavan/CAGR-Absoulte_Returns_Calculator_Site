@@ -30,19 +30,17 @@
         <form id="calculatorForm">
             <div class="form-group">
                 <label for="absoluteReturn"> Absolute Return</label>
-                <input type="number" class="form-control" id="absoluteReturn" placeholder="Enter Absolute Return">
+                <input type="number" step="0.01" class="form-control" id="absoluteReturn" placeholder="Enter Absolute Return">
             </div>
             <div class="form-group">
                 <label for="cagr"> CAGR</label>
-                <input type="number" class="form-control" id="cagr" placeholder="Enter CAGR">
+                <input type="number" step="0.01" class="form-control" id="cagr" placeholder="Enter CAGR">
             </div>
             <div class="form-group">
                 <label for="years"> Number of Years</label>
-                <input type="number" class="form-control" id="years" placeholder="Enter Number of Years">
+                <input type="number" step="0.01" class="form-control" id="years" placeholder="Enter Number of Years">
             </div>
-            <button type="submit" class="btn btn-primary">Calculate</button>
-            <button type="button" id="saveButton" class="btn btn-primary">Save</button>
-
+            <button type="submit" class="btn btn-primary"> Calculate</button>
         </form>
         <table class="table" id="resultsTable">
             <thead>

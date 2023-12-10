@@ -18,11 +18,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
         if (absoluteReturn === null && cagr !== null && years !== null) {
             const absoluteReturnDecimal = cagr / 100;
             const fv = 1 + absoluteReturnDecimal;
-            form.absoluteReturn.value = ((fv ** years) - 1) * 100;
+            form.absoluteReturn.value = (((fv ** years) - 1) * 100).toFixed(2);
+
         } else if (cagr === null && absoluteReturn !== null && years !== null) {
             const absoluteReturnDecimal = absoluteReturn / 100;
             const fv = 1 + absoluteReturnDecimal;
-            form.cagr.value = ((fv ** (1 / years)) - 1) * 100;
+            form.cagr.value = (((fv ** (1 / years)) - 1) * 100).toFixed(2);
+
         }
 
         const result = {
@@ -30,13 +32,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
             cagr: form.cagr.value,
             years: form.years.value
         };
+
+        // Add result to table
+        addRowToTable(result);
+
+        // Save result to local storage
+        previousResults.push(result);
+        localStorage.setItem('results', JSON.stringify(previousResults));
     });
 
     function addRowToTable(result) {
         const row = table.insertRow();
-        row.insertCell().innerText = result.absoluteReturn;
-        row.insertCell().innerText = result.cagr;
-        row.insertCell().innerText = result.years;
+        row.insertCell().innerText = parseFloat(result.absoluteReturn).toFixed(2);
+        row.insertCell().innerText = parseFloat(result.cagr).toFixed(2);
+        row.insertCell().innerText = parseFloat(result.years).toFixed(2);
 
         // Add a cell with the Delete button
         const deleteCell = row.insertCell();
@@ -58,24 +67,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
         deleteCell.appendChild(deleteButton);
     }
-
-    const saveButton = document.getElementById('saveButton');
-    saveButton.addEventListener('click', (event) => {
-        event.preventDefault();
-
-        const result = {
-            absoluteReturn: form.absoluteReturn.value,
-            cagr: form.cagr.value,
-            years: form.years.value
-        };
-
-        // Add result to table
-        addRowToTable(result);
-
-        // Save result to local storage
-        previousResults.push(result);
-        localStorage.setItem('results', JSON.stringify(previousResults));
-    });
-
 
 });

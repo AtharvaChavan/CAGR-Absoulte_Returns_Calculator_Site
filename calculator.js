@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         } else if (cagr === null && absoluteReturn !== null && years !== null) {
             const absoluteReturnDecimal = absoluteReturn / 100;
             const fv = 1 + absoluteReturnDecimal;
-            form.cagr.value = ((fv ** (1/years)) - 1) * 100;
+            form.cagr.value = ((fv ** (1 / years)) - 1) * 100;
         }
 
         const result = {
@@ -44,5 +44,26 @@ document.addEventListener('DOMContentLoaded', (event) => {
         row.insertCell().innerText = result.absoluteReturn;
         row.insertCell().innerText = result.cagr;
         row.insertCell().innerText = result.years;
+
+        // Add a cell with the Delete button
+        const deleteCell = row.insertCell();
+        const deleteButton = document.createElement('button');
+        deleteButton.innerText = 'Delete';
+        deleteButton.className = 'btn btn-danger';
+        deleteButton.addEventListener('click', () => {
+            // Remove this result from the previousResults array
+            const resultIndex = previousResults.indexOf(result);
+            if (resultIndex !== -1) {
+                previousResults.splice(resultIndex, 1);
+            }
+
+            // Remove this row from the table
+            row.remove();
+
+            // Update the results in local storage
+            localStorage.setItem('results', JSON.stringify(previousResults));
+        });
+        deleteCell.appendChild(deleteButton);
     }
+
 });

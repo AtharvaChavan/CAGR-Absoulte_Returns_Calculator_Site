@@ -3,31 +3,51 @@
 <head>
     <title>CAGR and Absolute Return Calculator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+        }
+
+        .credits {
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+            .credits a {
+                color: #f22; /* Fallback color for browsers that don't support background-clip: text */
+                background-image: linear-gradient(to right, #f22, #f2f, #22f, #2ff, #2f2, #2f2, #ff2, #f22);
+                -webkit-background-clip: text;
+                background-clip: text;
+            }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>CAGR and Absolute Return Calculator</h1>
+        <h1> CAGR and Absolute Return Calculator</h1>
         <form id="calculatorForm">
             <div class="form-group">
-                <label for="absoluteReturn">Absolute Return</label>
+                <label for="absoluteReturn"> Absolute Return</label>
                 <input type="number" class="form-control" id="absoluteReturn" placeholder="Enter Absolute Return">
             </div>
             <div class="form-group">
-                <label for="cagr">CAGR</label>
+                <label for="cagr"> CAGR</label>
                 <input type="number" class="form-control" id="cagr" placeholder="Enter CAGR">
             </div>
             <div class="form-group">
-                <label for="years">Number of Years</label>
+                <label for="years"> Number of Years</label>
                 <input type="number" class="form-control" id="years" placeholder="Enter Number of Years">
             </div>
-            <button type="submit" class="btn btn-primary">Calculate</button>
+            <button type="submit" class="btn btn-primary"> Calculate</button>
         </form>
         <table class="table" id="resultsTable">
             <thead>
                 <tr>
-                    <th scope="col">Absolute Return</th>
-                    <th scope="col">CAGR</th>
-                    <th scope="col">Number of Years</th>
+                    <th scope="col"> Absolute Return</th>
+                    <th scope="col"> CAGR</th>
+                    <th scope="col"> Number of Years</th>
                 </tr>
             </thead>
             <tbody>

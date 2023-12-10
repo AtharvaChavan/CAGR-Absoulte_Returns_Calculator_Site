@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CAGR and Absolute Return Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>CAGR and Absolute Return Calculator</h1>
+        <form id="calculatorForm">
+            <div class="form-group">
+                <label for="absoluteReturn">Absolute Return</label>
+                <input type="number" class="form-control" id="absoluteReturn" placeholder="Enter Absolute Return">
+            </div>
+            <div class="form-group">
+                <label for="cagr">CAGR</label>
+                <input type="number" class="form-control" id="cagr" placeholder="Enter CAGR">
+            </div>
+            <div class="form-group">
+                <label for="years">Number of Years</label>
+                <input type="number" class="form-control" id="years" placeholder="Enter Number of Years">
+            </div>
+            <button type="submit" class="btn btn-primary">Calculate</button>
+        </form>
+        <table class="table" id="resultsTable">
+            <thead>
+                <tr>
+                    <th scope="col">Absolute Return</th>
+                    <th scope="col">CAGR</th>
+                    <th scope="col">Number of Years</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="calculator.js"></script>
+</body>
+</html>

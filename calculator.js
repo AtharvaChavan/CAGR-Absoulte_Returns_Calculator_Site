@@ -33,12 +33,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
             years: form.years.value
         };
 
-        // Add result to table
-        addRowToTable(result);
+        //// Add result to table
+        //addRowToTable(result);
 
-        // Save result to local storage
-        previousResults.push(result);
-        localStorage.setItem('results', JSON.stringify(previousResults));
+        //// Save result to local storage
+        //previousResults.push(result);
+        //localStorage.setItem('results', JSON.stringify(previousResults));
     });
 
     function addRowToTable(result) {
@@ -67,5 +67,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
         deleteCell.appendChild(deleteButton);
     }
+
+    const saveButton = document.getElementById('saveButton');
+    saveButton.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        const result = {
+            absoluteReturn: form.absoluteReturn.value,
+            cagr: form.cagr.value,
+            years: form.years.value
+        };
+
+        // Add result to table
+        addRowToTable(result);
+
+        // Save result to local storage
+        previousResults.push(result);
+        localStorage.setItem('results', JSON.stringify(previousResults));
+    });
 
 });
